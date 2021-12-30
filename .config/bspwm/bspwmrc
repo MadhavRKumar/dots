@@ -1,0 +1,49 @@
+#! /bin/sh
+
+# Wacom Mulit Screen  Setup
+# must happen before wal
+# xrandr --output DP-1 --primary --mode 2560x1440 --rotate normal 
+# --output HDMI-0 --mode 1920x1080 --rotate normal --below DP-2
+#$HOME/.config/wacom/wacom-config.sh
+
+# Add local 'pip' to PATH for pywal
+export PATH=${PATH}:${HOME}/.local/bin/
+# Random background and color scheme
+#wal -i $HOME/Pictures/Wallpapers
+
+# Reapply background
+#wal -R
+~/.fehbg &
+
+# Update spicetify to match
+# spicetify update
+
+# restart window titles daemon
+while pgrep -u $UID -f bspwm_window_titles >/dev/null; do pkill -f bspwm_window_titles; done
+bspwm_window_titles &
+
+# Launch polybar
+$HOME/.config/polybar/launch.sh
+
+
+# Launch picom
+picom -cb --experimental-backends &
+
+# Launch sxhkd
+sxhkd &
+
+# bspwm settings
+bspc monitor -d I II III
+
+bspc config border_width         1
+bspc config window_gap          25
+
+bspc config split_ratio          0.52
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+urxvt &

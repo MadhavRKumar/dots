@@ -1,0 +1,249 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+background = ${xrdb:background}
+background-alt = ${xrdb:color6}
+foreground = ${xrdb:color6}
+foreground-alt = ${xrdb:color1}
+primary = ${xrdb:color14}
+secondary = #e60053
+alert = #bd2c40
+
+[bar/wacom]
+;monitor = HDMI-0  
+;width = 100%
+;height = 3.5%
+;offset-x = 1%
+;offset-y = 1%
+;fixed-center = false
+
+;background = #000f0f0f
+;foreground = ${colors.foreground}
+
+;line-size = 3
+;line-color = #f00
+
+;border-size = 4
+;border-color = #00000000
+
+;padding-left = 2
+;padding-right = 2
+
+;module-margin-left = 0
+;module-margin-right = 0
+
+;font-0 = FantasqueSansMono Nerd Font Mono:style=Regular:size=12
+;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+;font-2 = siji:pixelsize=10;1
+
+;modules-left = xournal
+;modules-right =  bspwm 
+
+;tray-position = right
+;tray-padding = 2
+
+;wm-restack = bspwm
+;cursor-click = pointer
+;cursor-scroll = ns-resize
+
+
+[bar/example]
+monitor = DP-1 
+width = 100%
+height = 3%
+;offset-x = 1%
+offset-y = 1%
+fixed-center = true
+
+background = #000f0f0f
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+;border-size = 4
+border-color = #00000000
+
+padding-left = 3
+padding-right = 3
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = FantasqueSansMono Nerd Font Mono:style=Regular:size=12
+font-1 = FantasqueSansMono Nerd Font:style=Regular:size=12
+font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-3 = siji:pixelsize=10;1
+
+modules-left = bspwm
+;modules-center = padding windowlist 
+modules-right= padding pulseaudio padding date padding wlan padding
+
+tray-position = right
+tray-padding = 2
+;tray-background = #0063ff
+
+wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/xournal]
+type = custom/text
+content = "x"
+content-background = ${colors.background}
+click-left = xournalpp &
+content-padding = 2
+
+[module/padding]
+type = custom/text
+content = ||
+content-background = ${colors.background}
+content-foreground = ${colors.background}
+
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = true
+
+label-focused = ""
+label-focused-foreground = ${colors.background}
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-occupied = ""
+label-occupied-foreground = ${colors.foreground}
+label-occupied-background = ${colors.background}
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = ""
+label-empty-background = ${colors.background}
+label-empty-foreground = ${colors.foreground}
+label-empty-padding = 2
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/windowlist]
+type = custom/script
+exec = ${env:P_BSPWM_WINDOW_CMD}
+interval = 0.5
+format = <label>
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+
+[module/mpd]
+type = internal/mpd
+format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+[module/wlan]
+type = internal/network
+interface = wlp31s0
+interval = 3.0
+
+format-connected-background = ${colors.background}
+format-connected = <label-connected>
+label-connected = "   "
+label-connected-font = 2
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+
+[module/date]
+type = internal/date
+interval = 1
+
+date-alt = " %Y-%m-%d"
+date-background = ${colors.background}
+time = %H:%M:%S
+time-alt = %H:%M:%S
+
+format-prefix-foreground = ${colors.foreground-alt}
+format-background = ${colors.background}
+
+label = %date% %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume>
+format-volume-background = ${colors.background}
+label-volume = VOL %percentage%%
+label-volume-foreground = ${root.foreground}
+
+label-muted = muted
+label-muted-background = ${colors.background}
+label-muted-foreground = #666
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+pseudo-transparency = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
