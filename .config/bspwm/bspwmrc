@@ -47,3 +47,4 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 urxvt &
+redshift -l 34.94957:-81.93205

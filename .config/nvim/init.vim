@@ -61,6 +61,11 @@ set shiftwidth=4
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_ShortcutF = "<leader>ff"
+noremap <leader>fr :exec g:Lf_py "fileExplManager.refresh()"
+
+" Prettier config
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
 
 " Set relative number
 set relativenumber
@@ -76,6 +81,8 @@ call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', { 'do': 'npm install --frozen-lockfile --production' }
 call plug#end()
 
 lua <<EOF
@@ -84,5 +91,8 @@ lua <<EOF
     highlight = { enable = true },
     incremental_selection = { enable = true },
     textobjects = { enable = true },
+	indent = { 
+		enable = true
+	}
   }
 EOF

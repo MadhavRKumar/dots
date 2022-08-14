@@ -28,7 +28,7 @@ ZSH_THEME="theunraveler"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -69,7 +69,8 @@ ZSH_THEME="theunraveler"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git vi-mode)
+NORMAL_MODE_INDICATOR="%{$FX[italic]$FG[201]%}NORMAL%{$FX[reset]%}"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,7 +99,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vim="nvim"
 
 # Import color scheme from 'wal' asynchronously
 #(cat ~/.cache/wal/sequences &)
@@ -109,5 +109,3 @@ export EDITOR="nvim"
 # nvm script
 source /usr/share/nvm/init-nvm.sh
 
-# for storing defaults
-alias config='/usr/bin/git --git-dir=/home/madhav/.dots/ --work-tree=/home/madhav'
