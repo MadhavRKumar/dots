@@ -18,10 +18,10 @@
 
 [colors]
 background = ${xrdb:background}
-background-alt = ${xrdb:color6}
-foreground = ${xrdb:color6}
-foreground-alt = ${xrdb:color1}
-primary = ${xrdb:color14}
+background-alt = ${xrdb:crust}
+foreground = ${xrdb:foreground}
+foreground-alt = ${xrdb:background}
+primary = #f4dbd6
 secondary = #e60053
 alert = #bd2c40
 
@@ -131,13 +131,13 @@ type = internal/bspwm
 pin-workspaces = true
 
 label-focused = ""
-label-focused-foreground = ${colors.background}
+label-focused-foreground = ${colors.primary}
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 label-occupied = ""
-label-occupied-foreground = ${colors.foreground}
+label-occupied-foreground = ${colors.primary}
 label-occupied-background = ${colors.background}
 label-occupied-padding = 2
 
@@ -199,7 +199,6 @@ date-background = ${colors.background}
 time = %H:%M:%S
 time-alt = %H:%M:%S
 
-format-prefix-foreground = ${colors.foreground-alt}
 format-background = ${colors.background}
 
 label = %date% %time%

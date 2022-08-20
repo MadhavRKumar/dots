@@ -24,48 +24,58 @@ Xcursor.size: 12
 ! X colors.
 ! Colors 0-15.
 ! special
-*.foreground:   #f2dfff
-*.background:   #0d0d0d
-*.cursorColor:  #f2dfff
 URxvt*background:   [100]#0d0d0d
 URxvt*borderColor:  [100]#0d0d0d
 
+! Base
+*background: #24273A
+! Text
+*foreground: #CAD3F5
+
 ! black
-*.color0:       #171812
-*.color8:       #8b8a8d
+! Surface1
+*color0: #494D64
+! Surface2
+*color8: #5B6078
 
 ! red
-*.color1:       #20211a
-*.color9:       #625559
+! Red
+*color1: #ED8796
+*color9: #ED8796
 
 ! green
-*.color2:       #313229
-*.color10:      #a52c29
+! Green
+*color2: #A6DA95
+*color10: #A6DA95
 
 ! yellow
-*.color3:       #484a3d
-*.color11:      #8d7d83
+! Yellow
+*color3: #EED49F
+*color11: #EED49F
 
 ! blue
-*.color4:       #656857
-*.color12:      #f55a28
+! BLue
+*color4: #8AADF4
+*color12: #8AADF4
 
 ! magenta
-*.color5:       #888d76
-*.color13:      #8c4e5b
+! Pink
+*color5: #F5BDE6
+*color13: #F5BDE6
 
 ! cyan
-*.color6:       #b1b699
-*.color14:      #dd2d2a
+! Teal
+*color6: #8BD5CA
+*color14: #8BD5CA
 
 ! white
-*.color7:       #e0e6c2
-*.color15:      #c7c6ca
+! Subtext1
+*color7: #B8C0E0
+! Subtext0
+*color15: #A5ADCB
 
-
-! Black color that will not be affected by bold highlighting.
-*.color66: #0e0b04
-*color66:  #0e0b04
+*mantle: #1e2030
+*crust: #181926
 
 ! Xclock colors.
 XClock*foreground: #f2dfff
