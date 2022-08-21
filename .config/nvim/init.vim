@@ -74,7 +74,7 @@ set relativenumber
 set clipboard=unnamedplus
 
 " Set leader
-let mapleader = " "
+let mapleader = ","
 
 " PLUGINS
 call plug#begin()
@@ -83,6 +83,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 " post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', { 'do': 'npm install --frozen-lockfile --production' }
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 call plug#end()
 
 lua <<EOF
@@ -96,3 +97,17 @@ lua <<EOF
 	}
   }
 EOF
+
+let g:catppuccin_flavour = "macchiato" " latte, frappe, macchiato, mocha
+
+lua << EOF
+require("catppuccin").setup()
+EOF
+
+colorscheme catppuccin
+
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"

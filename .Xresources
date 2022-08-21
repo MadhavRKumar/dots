@@ -24,8 +24,8 @@ Xcursor.size: 12
 ! X colors.
 ! Colors 0-15.
 ! special
-URxvt*background:   [100]#0d0d0d
-URxvt*borderColor:  [100]#0d0d0d
+URxvt*background:   [100]#24273A
+URxvt*borderColor:  [100]#24273A
 
 ! Base
 *background: #24273A
