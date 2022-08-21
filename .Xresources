@@ -77,6 +77,11 @@ URxvt*borderColor:  [100]#24273A
 *mantle: #1e2030
 *crust: #181926
 
+*overlay2: #939ab7
+*overlay1: #8087a2
+*overlay0: #68738d
+*lavender: #b7bdf8
+
 ! Xclock colors.
 XClock*foreground: #f2dfff
 XClock*background: #0e0b04
