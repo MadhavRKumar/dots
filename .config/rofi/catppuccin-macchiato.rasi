@@ -8,8 +8,8 @@
     fg-col2: #ed8796;
     grey: #6e738d;
 
-    width: 600;
-    font: "Fantasque Sans Mono Regular 12";
+    width: 1200;
+    font: "Fantasque Sans Mono Regular 14";
 }
 
 element-text, element-icon , mode-switcher {
@@ -59,7 +59,7 @@ listview {
     border: 0px 0px 0px;
     padding: 6px 0px 0px;
     margin: 10px 0px 0px 20px;
-    columns: 2;
+    columns: 1;
     lines: 5;
     background-color: @bg-col;
 }
