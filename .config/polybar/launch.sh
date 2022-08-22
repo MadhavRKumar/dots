@@ -26,7 +26,6 @@ fi
 # Launch wacom screen bar
 #polybar -r wacom >> /tmp/wacom-polybar.log 2>&1 &
 
-polybar -reload left >> /tmp/polybar.log 2>&1 &
-polybar -reload right >> /tmp/polybar.log 2>&1 &
+polybar -reload main >> /tmp/polybar.log 2>&1 &
 
 echo "---" | tee -a /tmp/polybar.log
