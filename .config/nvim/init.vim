@@ -84,6 +84,8 @@ Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 " post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', { 'do': 'npm install --frozen-lockfile --production' }
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown']}
+Plug 'tpope/vim-surround'
 call plug#end()
 
 lua <<EOF
@@ -111,3 +113,8 @@ inoremap <silent><expr> <TAB>
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+function OpenMarkdownPreview (url)
+execute "silent ! firefox --new-window " . a:url
+endfunction
+let g:mkdp_browserfunc = 'OpenMarkdownPreview'
